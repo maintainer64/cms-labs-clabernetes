@@ -98,7 +98,7 @@ func (f fakeManager) GetImagePullThroughMode() string {
 }
 
 func (f fakeManager) GetLauncherImage() string {
-	return "ghcr.io/srl-labs/clabernetes/clabernetes-launcher:latest"
+	return "ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-launcher:latest"
 }
 
 func (f fakeManager) GetImagePullCriSockOverride() string {

@@ -445,7 +445,7 @@ Global deployment configuration.
 | `containerlabDebug` | bool | `false` | Default debug logging |
 | `containerlabTimeout` | string | - | Default deploy timeout |
 | `containerlabVersion` | string | - | Override containerlab version |
-| `launcherImage` | string | `ghcr.io/srl-labs/clabernetes/clabernetes-launcher:latest` | Default launcher image |
+| `launcherImage` | string | `ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-launcher:latest` | Default launcher image |
 | `launcherImagePullPolicy` | enum | `IfNotPresent` | Default pull policy |
 | `launcherLogLevel` | enum | - | Default log level |
 | `extraEnv` | []EnvVar | - | Global environment variables |
