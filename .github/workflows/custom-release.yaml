@@ -58,16 +58,16 @@ jobs:
           
           make set-chart-versions $RELEASE_VERSION
 
-          export CLICKER_IMAGE="ghcr.io/maintainer64/clabernetes/clabernetes-clicker:${{ github.event.inputs.version }}"
+          export CLICKER_IMAGE="ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-clicker:${{ github.event.inputs.version }}"
           echo "clicker image->" $CLICKER_IMAGE
           yq -i eval '.image = strenv(CLICKER_IMAGE)' charts/clicker/values.yaml
           
-          export MANAGER_IMAGE="ghcr.io/maintainer64/clabernetes/clabernetes-manager:${{ github.event.inputs.version }}"
-          export LAUNCHER_IMAGE="ghcr.io/maintainer64/clabernetes/clabernetes-launcher:${{ github.event.inputs.version }}"
+          export MANAGER_IMAGE="ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-manager:${{ github.event.inputs.version }}"
+          export LAUNCHER_IMAGE="ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-launcher:${{ github.event.inputs.version }}"
           echo "manager image->" $MANAGER_IMAGE
           echo "launcher image->" $LAUNCHER_IMAGE
           yq -i eval '.manager.image = strenv(MANAGER_IMAGE)' charts/clabernetes/values.yaml
-          yq -i eval '.launcher.image = strenv(LAUNCHER_IMAGE)' charts/clabernetes/values.yaml
+          yq -i eval '.globalConfig.deployment.launcherImage = strenv(LAUNCHER_IMAGE)' charts/clabernetes/values.yaml
           
           helm package charts/clicker --version $RELEASE_VERSION
           helm package charts/clabernetes --version $RELEASE_VERSION

@@ -29,7 +29,7 @@ manager:
   podLabels: {}
 
   # defaults to .Chart.Version, if 0.0.0 version defaults to 'dev-latest' tag
-  image: "" # ghcr.io/srl-labs/clabernetes/clabernetes-manager:{{ .Chart.Version }}
+  image: ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-manager:dev-latest
   imagePullPolicy: IfNotPresent
 
   replicaCount: 3
@@ -152,7 +152,7 @@ globalConfig:
     # default image for launcher deployments; if not set here, manager will have this set to a sane
     # default as an env var that will be applied (this follows same patter as the manager image
     # itself), so this is here just if you want to override that yourself.
-    launcherImage: ""
+    launcherImage: ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-launcher:dev-latest
     launcherImagePullPolicy: IfNotPresent
     launcherLogLevel: info
 
@@ -183,7 +183,7 @@ ui:
   podLabels: { }
 
   # defaults to .Chart.Version, if 0.0.0 version defaults to 'dev-latest' tag
-  image: "" # ghcr.io/srl-labs/clabernetes/clabernetes-ui:{{ .Chart.Version }}
+  image: ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-ui:dev-latest
   imagePullPolicy: IfNotPresent
 
   replicaCount: 3

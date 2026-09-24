@@ -102,8 +102,13 @@ jobs:
 
           make set-chart-versions ${{ env.RELEASE_VERSION }}
 
+          export MANAGER_IMAGE="ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-manager:${{ env.RELEASE_VERSION }}"
+          export LAUNCHER_IMAGE="ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-launcher:${{ env.RELEASE_VERSION }}"
+          yq -i eval '.manager.image = strenv(MANAGER_IMAGE)' charts/clabernetes/values.yaml
+          yq -i eval '.globalConfig.deployment.launcherImage = strenv(LAUNCHER_IMAGE)' charts/clabernetes/values.yaml
+
           helm package charts/clicker --version ${{ env.RELEASE_VERSION }}
-          helm push clicker-${{ env.RELEASE_VERSION }}.tgz oci://ghcr.io/maintainer64/clabernetes
+          helm push clicker-${{ env.RELEASE_VERSION }}.tgz oci://ghcr.io/maintainer64/cms-labs-clabernetes
           
           helm package charts/clabernetes --version ${{ env.RELEASE_VERSION }}
-          helm push clabernetes-${{ env.RELEASE_VERSION }}.tgz oci://ghcr.io/maintainer64/clabernetes
+          helm push clabernetes-${{ env.RELEASE_VERSION }}.tgz oci://ghcr.io/maintainer64/cms-labs-clabernetes

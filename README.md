@@ -9,6 +9,8 @@ branch adds opt-in `ttyd`/tmux terminals (`ttyd-shell` per topology node) and
 publishes the controller, launcher and OCI Helm chart for the CMS Labs stack.
 The Go module and Kubernetes API names intentionally remain upstream-compatible.
 
+OCI chart: `oci://ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes`.
+
 ## Upstream project
 
 <p>
