@@ -36,6 +36,7 @@ data:
   containerlabDebug: "false"
   inClusterDNSSuffix: svc.cluster.local
   imagePullThroughMode: auto
+  launcherImage: ghcr.io/maintainer64/cms-labs-clabernetes/clabernetes-launcher:dev-latest
   launcherImagePullPolicy: IfNotPresent
   launcherLogLevel: info
   naming: prefixed
